@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ symbols gallery ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            color: #00d4ff;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 1rem;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.05);
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+            background: rgba(0, 255, 136, 0.1);
+        }
+        
+        .results-info {
+            text-align: center;
+            color: #888;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .item-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .item-card:hover {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 255, 136, 0.1) 100%);
+            border-color: rgba(0, 255, 136, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+        }
+        
+        .item-key {
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .item-value {
+            font-size: 2rem;
+            color: #00d4ff;
+            word-break: break-word;
+            line-height: 1.4;
+            user-select: all;
+        }
+        
+        .copy-hint {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 0.75rem;
+            color: rgba(0, 255, 136, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .item-card:hover .copy-hint {
+            opacity: 1;
+        }
+        
+        .copied-msg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00ff88;
+            color: #1a1a2e;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            animation: slideIn 0.3s ease;
+            z-index: 1000;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #888;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .item-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Copy Pasta Bin</h1>
+            <p class="subtitle">Click any symbol to copy</p>
+        </header>
+        
+        <input 
+            type="text" 
+            id="search" 
+            class="search-box"
+            placeholder="Search symbols..."
+            autofocus
+        />
+        
+        <div class="results-info">
+            <span id="count">Loading...</span>
+        </div>
+        
+        <div id="results" class="items-grid">
+            <div class="no-results">Loading items...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

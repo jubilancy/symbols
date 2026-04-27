@@ -1,5 +1,82 @@
 [
-  {"key": "shrug", "value": "¯\\_(ツ)_/¯"},
-  {"key": "tableflip", "value": "(╯°□°）╯︵ ┻━┻"},
-  {"key": "lenny", "value": "( ͡° ͜ʖ ͡°)"}
+  {
+    "key": "shrug",
+    "value": "¯\\_(ツ)_/¯"
+  },
+  {
+    "key": "tableflip",
+    "value": "(╯°□°）╯︵ ┻━┻"
+  },
+  {
+    "key": "lenny",
+    "value": "( ͡° ͜ʖ ͡°)"
+  },
+  {
+    "key": "sparkle",
+    "value": "✨"
+  },
+  {
+    "key": "star",
+    "value": "★"
+  },
+  {
+    "key": "heart",
+    "value": "♥"
+  },
+  {
+    "key": "flower",
+    "value": "✿"
+  },
+  {
+    "key": "check",
+    "value": "✔"
+  },
+  {
+    "key": "music",
+    "value": "♫"
+  },
+  {
+    "key": "butterfly",
+    "value": "🦋"
+  },
+  {
+    "key": "sun",
+    "value": "☀️"
+  },
+  {
+    "key": "moon",
+    "value": "🌙"
+  },
+  {
+    "key": "cloud",
+    "value": "☁️"
+  },
+  {
+    "key": "coffee",
+    "value": "☕"
+  },
+  {
+    "key": "skull",
+    "value": "💀"
+  },
+  {
+    "key": "robot",
+    "value": "🤖"
+  },
+  {
+    "key": "alien",
+    "value": "👽"
+  },
+  {
+    "key": "ghost",
+    "value": "👻"
+  },
+  {
+    "key": "cat",
+    "value": "🐱"
+  },
+  {
+    "key": "dog",
+    "value": "🐶"
+  }
 ]
