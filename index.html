@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // works at the domain root and under a github.io project path (/symbols/)
+  (function () {
+    var seg = location.pathname.split('/')[1];
+    var base = /\.github\.io$/.test(location.hostname) && seg ? '/' + seg + '/' : '/';
+    window.BASE = base;
+    document.write('<base href="' + base + '">' +
+      '<link rel="icon" href="favicon.svg" type="image/svg+xml">');
+  })();
+</script>
 <title>symbols</title>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
   :root {
     --bg: #f6f4ef;
@@ -266,6 +275,6 @@
     <a href="https://glosse.me">glosse.me</a>
   </footer>
 
-  <script src="/script.js"></script>
+  <script>document.write('<script src="script.js"><\/script>');</script>
 </body>
 </html>

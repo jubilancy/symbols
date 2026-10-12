@@ -1,4 +1,5 @@
 const PAGE_SIZE = 300;
+const BASE = window.BASE || '/';
 
 let allItems = [];
 let categories = [];   // [{ name, slug, count }]
@@ -10,11 +11,12 @@ let shown = 0;
 const slugify = (name) =>
     name.toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-const slugFromPath = () => decodeURIComponent(location.pathname).split('/').filter(Boolean)[0] || '';
+const slugFromPath = () =>
+    decodeURIComponent(location.pathname.slice(BASE.length)).split('/').filter(Boolean)[0] || '';
 
 async function loadData() {
     try {
-        const response = await fetch('/data.json');
+        const response = await fetch('data.json');
         allItems = await response.json();
 
         const counts = new Map();
@@ -38,7 +40,7 @@ async function loadData() {
 
 function renderChips() {
     const chip = (slug, label, count) =>
-        `<a class="chip${slug === activeSlug ? ' active' : ''}" href="/${slug ? slug + '/' : ''}" data-slug="${escapeHtml(slug)}">` +
+        `<a class="chip${slug === activeSlug ? ' active' : ''}" href="${BASE}${slug ? slug + '/' : ''}" data-slug="${escapeHtml(slug)}">` +
         `${escapeHtml(label)}<small>${count}</small></a>`;
 
     document.getElementById('chips').innerHTML =
@@ -96,7 +98,7 @@ function updateCount(count) {
 
 function setCategory(slug, push = true) {
     activeSlug = slug;
-    if (push) history.pushState({}, '', `/${slug ? slug + '/' : ''}`);
+    if (push) history.pushState({}, '', `${BASE}${slug ? slug + '/' : ''}`);
     renderChips();
     applyFilters();
 }
